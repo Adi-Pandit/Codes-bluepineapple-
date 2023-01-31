@@ -1,0 +1,20 @@
+<script>
+    let rootValue = prompt("Enter value of root: ");
+    let root = {
+        value : rootValue,
+    }
+    let num = prompt("Enter number of childs: ");
+    while(num>0) {
+        let name = prompt("Enter name: ");
+        let value = prompt("Enter value: ");
+        num--;
+        root[name] = value;
+    }
+    alert("Root: "+root.value);
+    alert("N1: "+root.N1.value);
+    alert("N2: "+root.N2.value);
+    //alert("N3: "+root.N1.N3.value);
+    //alert("N4: "+root.N2.N4.value);
+    //alert("N5: "+root.N2.N5.value);
+    //alert(root.N1.N5);
+</script>

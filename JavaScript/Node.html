@@ -1,0 +1,27 @@
+<script>
+    let root = {
+        value : 10,
+        N1 : {
+            value : 5,
+            N3 : {
+                value : 2
+            }
+        },
+        N2 : {
+            value : 7,
+            N4 : {
+                value : 6
+            },
+            N5 : {
+                value : 3
+            }
+        }
+    }
+    alert("Root: "+root.value);
+    alert("N1: "+root.N1.value);
+    alert("N2: "+root.N2.value);
+    alert("N3: "+root.N1.N3.value);
+    alert("N4: "+root.N2.N4.value);
+    alert("N5: "+root.N2.N5.value);
+    alert(root.N1.N5);
+</script>

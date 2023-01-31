@@ -1,0 +1,13 @@
+<script>
+    let num = Number(prompt("Enter number: "));
+    let occuranceOfDigit = [0,0,0,0,0,0,0,0,0,0];
+
+    while(num>0) {
+        occuranceOfDigit[num%10]++;
+        num = Math.trunc(num/10);
+    }
+
+    for(let i=0; i<occuranceOfDigit.length; i++) {
+        alert(`${i} appears for ${occuranceOfDigit[i]}`);
+    }
+</script>
