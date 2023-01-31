@@ -113,5 +113,4 @@ public class DateDifference
         }
         System.out.println("Days: "+dayDifference);
     }
-    //Aditya 
 }
