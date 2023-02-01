@@ -1,3 +1,4 @@
 src/*.exe
 build/*.c
-Programming Basics/*.exe
+Programming Basics/Hi.c
+Programming Basics/Hi.exe
