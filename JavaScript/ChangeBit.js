@@ -1,0 +1,2 @@
+let character = 'A';
+
