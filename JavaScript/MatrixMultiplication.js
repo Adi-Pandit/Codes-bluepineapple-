@@ -32,6 +32,4 @@ let Bc=3;
 let matrixA = [[1,2,3],[2,3,4],[3,4,5]];
 let matrixB = [[2,3,4],[3,4,5],[4,5,6]];
 
-
-
 matrixMultiplication(Ar,Ac,Br,Bc,matrixA,matrixB);

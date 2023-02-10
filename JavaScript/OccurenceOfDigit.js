@@ -1,5 +1,5 @@
-<script>
-    let num = Number(prompt("Enter number: "));
+
+function CalculateOccuranceOfDigit(num) {
     let occuranceOfDigit = [0,0,0,0,0,0,0,0,0,0];
 
     while(num>0) {
@@ -8,6 +8,9 @@
     }
 
     for(let i=0; i<occuranceOfDigit.length; i++) {
-        alert(`${i} appears for ${occuranceOfDigit[i]}`);
+        console.log(`${i} appears for ${occuranceOfDigit[i]}`);
     }
-</script>
+}
+
+let num = 1234567890;
+CalculateOccuranceOfDigit(num);
