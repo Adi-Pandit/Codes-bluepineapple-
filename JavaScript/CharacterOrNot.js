@@ -5,12 +5,17 @@ function isCharacter(character) {
     return false;
 }
 
-function testCase(character, expectedResult) {
+function testFunction(character, expectedResult) {
     if(isCharacter(character)===expectedResult)
-        console.log(`Test Case Sucessful for ${character}`);
+        return 'Pass';
     else    
-        console.log(`Test Case Unsucessful for ${character}`);
+        return 'Not pass';
 }
- 
-testCase('A',true);
-testCase('5',false);
+
+console.log('Test Cases:');
+console.log('\nCharacter\tActual Result\tExpected Result\tTest Case');
+console.log('A\t\t'+isCharacter('A')+'\t\t'+true+'\t\t'+testFunction('A', true));
+console.log('5\t\t'+isCharacter('5')+'\t\t'+false+'\t\t'+testFunction('5', false));
+console.log('AB\t\t'+isCharacter('AB')+'\t\t'+false+'\t\t'+testFunction('AB', false));
+console.log('empty char\t'+isCharacter(' ')+'\t\t'+false+'\t\t'+testFunction(' ', false));
+console.log('#\t\t'+isCharacter('#')+'\t\t'+false+'\t\t'+testFunction('#', false));
