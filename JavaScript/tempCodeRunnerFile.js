@@ -1,0 +1,11 @@
+    tree.insertNode(13);
+    tree.insertNode(53);
+    tree.insertNode(9);
+    tree.insertNode(21);
+    tree.insertNode(61);
+    tree.insertNode(8);
+    tree.insertNode(11);
+    tree.preOrder();
+    tree.deleteNode(13);
+    console.log("After Deletion: ");
+    tree.preOrder();
