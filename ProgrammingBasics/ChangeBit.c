@@ -13,10 +13,10 @@ void flipBit(int num, int offset)
 		BinaryArray[i++] = remainder;
 	}
 	
-	if(BinaryArray[offset]==1)
-		BinaryArray[offset]=0;
+	if(BinaryArray[offset-1]==1)
+		BinaryArray[offset-1]=0;
 	else
-		BinaryArray[offset]=1;
+		BinaryArray[offset-1]=1;
 		
 	int sum=0;
 	for(i=0; i<(sizeof(BinaryArray)/sizeof(BinaryArray[0])); i++)

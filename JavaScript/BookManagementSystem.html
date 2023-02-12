@@ -1,0 +1,97 @@
+<script>
+    function Node(bookName) {
+        this.bookName = bookName;
+        this.next = null;
+    }
+
+    function BookList() {
+        var length = 0;
+        var head = null;
+
+        size = function() {
+            return length;
+        }
+
+        addBook = function(bookName) {
+            var node = new Node(bookName);
+            if(head==null) {
+                head = node;
+                alert(head.bookName);
+            } else {
+                var currentNode = head;
+                while(currentNode.next) {
+                    currentNode = currentNode.next;
+                }
+                currentNode.next = node;
+            }
+            length++;
+            alert("Book added successfully");
+        }
+
+        deleteBook = function(bookName) {
+            var currentNode = head;
+            var previousNode;
+
+            if(currentNode.bookName===bookName) {
+                head = currentNode.next;
+            } else {
+                while(currentNode.bookName!==bookName) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next;
+                }
+                previousNode.next = currentNode.next;
+            }
+            length--;
+        }
+
+        displayBooks = function() {
+            var currentNode = head;
+            while(currentNode) {
+                alert(currentNode.bookName);
+                currentNode = currentNode.next;
+            }
+        }
+
+        searchBook = function(bookName) {
+            var currentNode = head;
+            while(currentNode) {
+                if(currentNode.bookName===bookName) {
+                    return true;
+                }
+                currentNode = currentNode.next;
+            }
+            return false;
+        }
+
+        do {
+            var ch = Number(prompt(("\n1. Add book\n2. Search Book\n3. Delete Book\n4. Display Book\n5. Exit\n")));
+            switch(ch) {
+                case 1:
+                    var bookname = prompt("Enter book name: ");
+                    addBook(bookname);
+                    break;
+                case 2:
+                    var bookname = prompt("Enter book name: ");
+                    if(searchBook(bookname)) 
+                        alert('Book Exist');
+                    else   
+                        alert('Book Does Not Exist');
+                    break;
+                case 3:
+                    var bookname = prompt("Enter book name: ");
+                    if(searchBook(bookname)) {
+                        
+                    }
+                    break;
+                case 4:
+                    displayBooks();
+                    break;
+                case 5:
+                    break;
+            }
+        } while(ch!==5);
+    }
+
+    BookList();
+
+</script>
