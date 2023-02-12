@@ -1,22 +1,22 @@
 <script>
-    function Node(bookName) {
+    function Book(bookName) {
+        this.bookName = bookName;
+        this.next = null;
+    }
+
+    function Student(bookName) {
         this.bookName = bookName;
         this.next = null;
     }
 
     function BookList() {
-        var length = 0;
         var head = null;
-
-        size = function() {
-            return length;
-        }
+        var first = null;
 
         addBook = function(bookName) {
-            var node = new Node(bookName);
+            var node = new Book(bookName);
             if(head==null) {
                 head = node;
-                alert(head.bookName);
             } else {
                 var currentNode = head;
                 while(currentNode.next) {
@@ -24,8 +24,6 @@
                 }
                 currentNode.next = node;
             }
-            length++;
-            alert("Book added successfully");
         }
 
         deleteBook = function(bookName) {
@@ -41,7 +39,6 @@
                 }
                 previousNode.next = currentNode.next;
             }
-            length--;
         }
 
         displayBooks = function() {
@@ -63,33 +60,111 @@
             return false;
         }
 
+        issueBook = function(bookName) {
+            var node = new Student(bookName);
+            if(first==null) {
+                first = node;
+            } else {
+                var currentNode = first;
+                while(currentNode.next) {
+                    currentNode = currentNode.next;
+                }
+                currentNode.next = node;
+            }
+        }
+
+        deleteIssuedBook = function(bookName) {
+            var currentNode = first;
+            var previousNode;
+
+            if(currentNode.bookName===bookName) {
+                first = currentNode.next;
+            } else {
+                while(currentNode.bookName!==bookName) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next;
+                }
+                previousNode.next = currentNode.next;
+            }
+        }
+
+        displayIssuedBooks = function() {
+            var currentNode = first;
+            while(currentNode) {
+                alert(currentNode.bookName);
+                currentNode = currentNode.next;
+            }
+        }
+
+        searchIssuedBook = function(bookName) {
+            var currentNode = first;
+            while(currentNode) {
+                if(currentNode.bookName===bookName) {
+                    return true;
+                }
+                currentNode = currentNode.next;
+            }
+            return false;
+        }
+
         do {
-            var ch = Number(prompt(("\n1. Add book\n2. Search Book\n3. Delete Book\n4. Display Book\n5. Exit\n")));
+            var ch = Number(prompt(("\n1. Add book\n2. Search Book\n3. Delete Book\n4. Display Book\n5. Issue Book\n6. Return Book\n7. Display Issued Book\n8. Exit\n")));
             switch(ch) {
                 case 1:
                     var bookname = prompt("Enter book name: ");
-                    addBook(bookname);
+                    if(!searchBook(bookname)) {
+                        addBook(bookname);
+                        alert("Book added successfully");
+                    }
+                    else    
+                        alert('Book already exist');
                     break;
                 case 2:
                     var bookname = prompt("Enter book name: ");
                     if(searchBook(bookname)) 
-                        alert('Book Exist');
+                        alert('Book exist');
                     else   
-                        alert('Book Does Not Exist');
+                        alert('Book does not exist');
                     break;
                 case 3:
                     var bookname = prompt("Enter book name: ");
                     if(searchBook(bookname)) {
-                        
+                        deleteBook(bookname);
+                        alert("Book deleted successfully");
                     }
+                    else 
+                        alert('Book does not exist');
                     break;
                 case 4:
                     displayBooks();
                     break;
                 case 5:
+                    var bookname = prompt("Enter book name: ");
+                    if(searchBook(bookname)) {
+                        deleteBook(bookname);
+                        issueBook(bookname);
+                        alert('Book issued successfully');
+                    } else
+                        alert('Book does not exist');
                     break;
+                case 6:
+                    var bookname = prompt("Enter book name: ");
+                    if(searchIssuedBook(bookname)) {
+                        deleteIssuedBook(bookname);
+                        addBook(bookname);
+                        alert('Book returned successfully');
+                    } else 
+                        alert('Book is not issued');
+                    break;
+                case 7:
+                    displayIssuedBooks();
+                    break;
+                case 8:
+                    break;
+                default:
+                    alert('Enter valid choice');
             }
-        } while(ch!==5);
+        } while(ch!==8);
     }
 
     BookList();
