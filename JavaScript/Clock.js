@@ -28,8 +28,6 @@ function testFunction(indicatedHour, indicatedMin, extraTime, expectedResult)
 		return 'Not pass';
 }
 
-console.log(Clock(12, 15));
-
 console.log('Test Cases:');
 console.log('\nIndicated Time\tActual Result\tExpected Result\tTest Case');
 console.log('9:20\t\t'+Clock(9, 20, 10)+'\t\t'+8+'\t\t'+testFunction(9, 20, 10, 8));
