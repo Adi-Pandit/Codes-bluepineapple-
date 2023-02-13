@@ -1,6 +1,10 @@
 #include<stdio.h>
+#include<string.h>
+#include<Math.h>
 
-int NumberToWords(long long int num)
+char numberInWords[] = "";
+
+char* NumberToWords(long long int num)
 {
     int arrayOfDigits[15];
     int i = 0;
@@ -10,9 +14,9 @@ int NumberToWords(long long int num)
     if(num==0)
         printf("zero");
 
-    char oneToNine[9][5] = {"one","two","three","four","five","six","seven","eight","nine"};
-    char twentyToNinety[8][10] = {"twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"};
-    char tenToNineteen[10][10] = {"ten","eleven","twenty","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
+    char oneToNine[9][10] = {"one ","two ","three ","four ","five ","six ","seven ","eight ","nine "};
+    char twentyToNinety[8][10] = {"twenty ","thirty ","fourty ","fifty ","sixty ","seventy ","eighty ","ninety "};
+    char tenToNineteen[10][10] = {"ten ","eleven ","twenty ","thirteen ","fourteen ","fifteen ","sixteen ","seventeen ","eighteen ","nineteen "};
 
     while(num>0)
     {
@@ -26,24 +30,24 @@ int NumberToWords(long long int num)
         if((noOfDigits==2 && arrayOfDigits[j]==1) || (noOfDigits==5 && arrayOfDigits[j]==1) || (noOfDigits==7 && arrayOfDigits[j]==1) || (noOfDigits==9 && arrayOfDigits[j]==1))
         {
             choice = arrayOfDigits[j]*10+arrayOfDigits[j-1];  
-            printf("%s ",tenToNineteen[choice-10]);
+            strcat(numberInWords,tenToNineteen[choice-10]);
             if(noOfDigits==5)
             {
-                printf("thousand ");
+                strcat(numberInWords,"thousand ");
                 noOfDigits=noOfDigits-2;
                 j--;
                 continue;
             }
             else if(noOfDigits==7)
             {
-                printf("lakh ");
+                strcat(numberInWords,"lakh ");
                 noOfDigits=noOfDigits-2;
                 j--;
                 continue;
             }
             else if(noOfDigits==9)
             {
-                printf("crore ");
+                strcat(numberInWords,"crore ");
                 noOfDigits=noOfDigits-2;
                 j--;
                 continue;
@@ -58,72 +62,97 @@ int NumberToWords(long long int num)
         switch(noOfDigits)
         {
             case 10:
-                printf("%s arab ",oneToNine[choice-1]);
+                strcat(numberInWords,oneToNine[choice-1]);
+                strcat(numberInWords,"arab ");
                 noOfDigits--;
                 break;
 
             case 9:
-                printf("%s ",twentyToNinety[choice-2]);
+                strcat(numberInWords,twentyToNinety[choice-2]);
                 if(arrayOfDigits[j]!=0 && arrayOfDigits[j-1]==0)
-                    printf("crore ");
+                    strcat(numberInWords,"crore ");
                 noOfDigits--;
                 break;
 
             case 8:
-                printf("%s crore ",oneToNine[choice-1]);
+                strcat(numberInWords,oneToNine[choice-1]);
+                strcat(numberInWords,"crore ");
                 noOfDigits--;
                 break;
             
             case 7:
-                printf("%s ",twentyToNinety[choice-2]);
+                strcat(numberInWords,twentyToNinety[choice-2]);
                 if(arrayOfDigits[j]!=0 && arrayOfDigits[j-1]==0)
-                    printf("lakh ");
+                    strcat(numberInWords,"lakh ");
                 noOfDigits--;
                 break;
 
             case 6:
-                printf("%s lakh ",oneToNine[choice-1]);
+                strcat(numberInWords,oneToNine[choice-1]);
+                strcat(numberInWords,"lakh ");
                 noOfDigits--;
                 break;
 
             case 5:
-                printf("%s ",twentyToNinety[choice-2]);
+                strcat(numberInWords,twentyToNinety[choice-2]);
                 if(arrayOfDigits[j]!=0 && arrayOfDigits[j-1]==0)
-                    printf("thousand ");
+                    strcat(numberInWords,"thousand ");
                 noOfDigits--;
                 break;
 
             case 4:
-                printf("%s thousand ",oneToNine[choice-1]);
+                strcat(numberInWords,oneToNine[choice-1]);
+                strcat(numberInWords,"thousand ");
                 noOfDigits--;
                 break;
 
             case 3:
-                printf("%s hundred ",oneToNine[choice-1]);
+                strcat(numberInWords,oneToNine[choice-1]);
+                strcat(numberInWords,"hundred ");
                 if(arrayOfDigits[j-1]!=0 || arrayOfDigits[j-2]!=0)
-                    printf("and ");
+                    strcat(numberInWords,"and ");
                 noOfDigits--;
                 break;
 
             case 2:
-                printf("%s ",twentyToNinety[choice-2]);
+                strcat(numberInWords,twentyToNinety[choice-2]);
                 noOfDigits--;
                 break;
 
             case 1:
-                printf("%s",oneToNine[choice-1]);
+                strcat(numberInWords,oneToNine[choice-1]);
                 noOfDigits--;
                 break;
         }
     }
+    return numberInWords;
 }
 
-
+char* testFunction(int num, char expectedResult[])
+{
+    if(strcmp(NumberToWords(num),expectedResult)==0)
+        return "Pass";
+    else    
+        return "Not pass";
+}
 
 int main()
 {
-    long long int num;
-    printf("\nEnter number : ");
-    scanf("%lld",&num);
-    NumberToWords(num);  
+    int num = 0;
+    char *actualResult;
+    char expectedResult[3][100] = {"one ","eleven ","one hundred and eleven "};
+
+    printf("\nTest cases:");
+    for(int i=1; i<=3; i++)
+    {
+        num = 10*num + 1;
+        printf("\n\nTC0%d:",(i));
+        printf("\nNumber: %d",num);
+        actualResult = NumberToWords(num);
+        printf("\nActual result: %s",actualResult);  
+        numberInWords[0] = '\0';
+        printf("\nExpected result: %s",expectedResult[i-1]);
+        printf("\nTest case: %s",testFunction(num,expectedResult[i-1]));
+        numberInWords[0] = '\0';
+    }
 }
