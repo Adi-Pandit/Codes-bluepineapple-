@@ -16,7 +16,8 @@ int NumberOfDigits(int num)
     return count;
 }
 
-const char* testFunction(int num, int expectedResult) {
+const char* testFunction(int num, int expectedResult) 
+{
     if(NumberOfDigits(num)==expectedResult)
         return "Pass";
     else   

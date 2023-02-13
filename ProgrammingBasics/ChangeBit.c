@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<Math.h>
 
-void flipBit(int num, int offset)
+int flipBit(int num, int offset)
 {
 	int remainder;
 	int BinaryArray[100] = {0};
@@ -23,13 +23,20 @@ void flipBit(int num, int offset)
 	{
 		sum += ((int)pow(2,i))*BinaryArray[i];
 	}
-	printf("\nNumber after flipping bit: %d ",sum);
-	printf("\nCharacter after flipping bit: %c ",sum);
+	return sum;
+}
+
+const char* testFunction(char character, int offset, int expectedResult) 
+{
+    if((char)flipBit(character,offset)==expectedResult)
+        return "Pass";
+    else   
+        return "Not pass";
 }
 
 int main()
 {
-	char character;
+	/*char character;
 	int num;
 	printf("\nEnter Character: ");
 	scanf("%c",&character);
@@ -37,5 +44,11 @@ int main()
 	printf("Enter offset number: ");
 	scanf("%d",&num);
 
-	flipBit(character, num);
+	flipBit(character, num);*/
+
+	printf("Test Cases:\n");
+	printf("\nCharacter\tOffset\tExpected Result\tActual Result\tTest Case");
+	printf("\nA\t\t5\t%c\t\tQ\t\t%s",flipBit('A',5),testFunction('A',5,'Q'));
+	printf("\na\t\t3\t%c\t\te\t\t%s",flipBit('a',3),testFunction('a',3,'e'));
+	printf("\nZ\t\t4\t%c\t\tR\t\t%s",flipBit('Z',4),testFunction('Z',4,'R'));
 }
