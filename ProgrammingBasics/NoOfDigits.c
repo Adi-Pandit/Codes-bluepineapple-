@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<Math.h>
 
-int NumberOfDigits(num) 
+int NumberOfDigits(int num) 
 {
     int count = 0;
     if(num==0)
@@ -16,23 +16,24 @@ int NumberOfDigits(num)
     return count;
 }
 
-int testFunction(num, expectedResult) {
-    if(NumberOfDigits(num)===expectedResult)
-        return 1;
+const char* testFunction(int num, int expectedResult) {
+    if(NumberOfDigits(num)==expectedResult)
+        return "Pass";
     else   
-        return 0;
+        return "Not pass";
 }
 
 int main() 
 {
     int num = 0;
     int i;
-    printf("Test Cases:");
+    printf("Test Cases:\n");
     printf("\nNumber\tActual Result\tExpected Result\tTest Case");
-    printf("%d\t%d\t\t"+1+"\t\t"+testFunction(num, 1),num,NumberOfDigits(num);
+    printf("\n%d\t%d\t\t1\t\t%s",num,NumberOfDigits(num),testFunction(num, 1));
     for(i=0; i<5; i++) {
-        num = Math.pow(10,i) + num;
-        printf(num+"\t"+NumberOfDigits(num)+"\t\t"+(i+1)+"\t\t"+testFunction(num, i+1));
+        num = (int)pow(10,i)+num;
+        printf("\n%d\t%d\t\t%d\t\t%s",num,NumberOfDigits(num),(i+1),testFunction(num, (i+1)));
     }
-    printf("-12345\t"+NumberOfDigits(-12345)+"\t\t"+5+"\t\t"+testFunction(-12345, 5));
+    num = -12345;
+    printf("\n%d\t%d\t\t%d\t\t%s",num,NumberOfDigits(num),5,testFunction(num, 5));
 }
