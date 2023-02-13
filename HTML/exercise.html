@@ -3,17 +3,23 @@
 <html>
     <head>
         <title>Table Exercise</title>
+        <style>
+            table, th, tr {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
     </head>
 
     <body>
-        <table border=1>
+        <table style="width:100%;">
             <thead>
                 <tr>
-                    <th colspan="4"><strong>A complex table</strong></th>
+                    <th colspan="4" style="background-color: rgb(207, 206, 206);"><strong>A complex table</strong></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr style="background-color: rgb(239, 236, 236);">
                     <td colspan="2"><strong>Invoice #123456789</strong></td>
                     <td colspan="2"><strong>14 January 2025</strong></td>
                 </tr>
@@ -33,7 +39,7 @@
                         </address>
                     </td>
                 </tr>
-                <tr>
+                <tr style="background-color: rgb(239, 236, 236);">
                     <td><strong>Name/Description</strong></td>
                     <td><strong>Qty.</strong></td>
                     <td><strong>@</strong></td>
@@ -52,18 +58,18 @@
                     <td>100.00</td>
                 </tr>
                 <tr>
-                    <td colspan="3"><strong>Subtotal</strong></td>
+                    <td colspan="3" style="background-color: rgb(239, 236, 236);"><strong>Subtotal</strong></td>
                     <td>110.00</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><strong>Tax</strong></td>
+                    <td colspan="2" style="background-color: rgb(239, 236, 236);"><strong>Tax</strong></td>
                     <td>8%</td>
                     <td>8.80</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3"><strong>Grand Total</strong></td>
+                    <td colspan="3" style="background-color: rgb(239, 236, 236);"><strong>Grand Total</strong></td>
                     <td>$118.80</td>
                 </tr>
             </tfoot>
