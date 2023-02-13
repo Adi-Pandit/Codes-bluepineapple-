@@ -2,11 +2,9 @@ const fs = require("fs");
 
 fs.readFile("JavaScript/Test.txt", (err, data) => {
     if (err) throw err;
-    console.log(data.toString());
-
+    
     let words = data.toString().replace(/[^a-zA-Z0-9 ]/g, '').split(' ');
-    console.log(words);
-
+    
     dictOfWords = {'for':4,'is':10,'of':55,'in':14,'great':1,'with':6,'epic':2,'the':65,'and':29};
 
     let count = 0;
