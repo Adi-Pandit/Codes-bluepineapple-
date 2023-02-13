@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-fs.readFile("JavaScript/Test.txt", (err, data) => {
+fs.readFile("Test.txt", (err, data) => {
     if (err) throw err;
     
     let words = data.toString().replace(/[^a-zA-Z0-9 ]/g, '').split(' ');
