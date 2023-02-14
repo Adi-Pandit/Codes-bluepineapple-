@@ -1,8 +1,9 @@
 #include<stdio.h>
 
-void OccuranceOfDigit(int num)
+int DigitOccuranceArray[10] = {0};
+
+int* OccuranceOfDigit(int num)
 {
-	int DigitOccuranceArray[10] = {0};
 	int remainder;		
 	while(num>0)
 	{
@@ -10,18 +11,36 @@ void OccuranceOfDigit(int num)
 		DigitOccuranceArray[remainder]++;
 		num = num/10;
 	}
+	return DigitOccuranceArray;
+}
+
+char* testFunction(int num, int expectedResult[])
+{
 	int i;
-	for(i=0; i<10; i++)
+	int *actualResult = OccuranceOfDigit(num);
+	for(i=0; i<10; i++) 
 	{
-		printf("\nOccurance of digit %d is %d",i,DigitOccuranceArray[i]);
+		if(actualResult[i]!=expectedResult[i])
+			return "Not pass";
 	}
+	return "Pass";
 }
 
 int main()
 {
-	int num;
-	printf("Enter number: ");
-	scanf("%d",&num);
-	
-	OccuranceOfDigit(num);
+	int num[3] = {123,12345,1234567};
+	int expectedResult[3][10] = {{0,1,1,1,0,0,0,0,0,0},{0,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,0,0}};
+	int i,j;
+
+	printf("\nTest Cases: ");
+	printf("\n\nNumber\t\tTest case");
+
+	for(i=0; i<3; i++)
+	{
+		printf("\n%d\t\t%s",num[i],testFunction(num[i],expectedResult[i]));
+		for(j=0; j<10; j++)
+		{
+			DigitOccuranceArray[j] = 0;
+		}
+	}
 }
