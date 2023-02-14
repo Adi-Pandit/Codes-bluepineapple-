@@ -1,0 +1,8 @@
+.top {
+    position: "-webkit-sticky";
+    position: "sticky";
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 50px;
+}
