@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Responsive HTML</title>
+        <style>
+            /*@media screen and (max-width: 1200px)
+            {
+                .column {
+                    -ms-flex: 30%;
+                    flex: 30%;
+                    max-width: 30%;
+                }
+            }*/
+
+            @media screen and (max-width: 800px)
+            {
+                .column {
+                    -ms-flex: 50%;
+                    flex: 50%;
+                    max-width: 50%;
+                }
+            }
+
+            @media screen and (max-width: 600px)
+            {
+                .column {
+                    -ms-flex: 100%;
+                    flex: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            .row {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                padding: 0 4px;
+            }
+
+            .card {
+                width: 23%;
+                color: white;
+                text-align: center;
+                margin: 12px;
+            }
+
+            .card-head {
+                margin-top: 10px;
+                padding-top: 10px;
+            }
+
+            .card-para {
+                text-align: justify;
+                padding: 0 20px 0 20px;
+            }
+
+            .card-btn {
+                margin: 250px 10px 10px 10px;
+                width: 90%;
+                padding: 10px 0 10px 0;
+                background-color: grey;
+                opacity: 0.8;
+                border-radius: 3px;
+                border: none;
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="column card" style="background-color: rgb(102, 51, 0);">
+                <h1 class="card-head">HARVESTING</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain or pulses by cutting them with a scythe, sickle, or reaper.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+            <div class="column card" style="background-color: rgb(204, 102, 0);">
+                <h1 class="card-head">PROCESS</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain or pulses by cutting them with a scythe, sickle, or reaper.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+            <div class="column card" style="background-color: yellowgreen">
+                <h1 class="card-head">ROASTING</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain or pulses by cutting them with a scythe, sickle, or reaper.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+            <div class="column card" style="background-color: black">
+                <h1 class="card-head">GRINDING</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain or pulses by cutting them with a scythe, sickle, or reaper.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+
+            <div class="column card" style="background-color: rgb(0, 128, 128);">
+                <h1 class="card-head">PACKAGING</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain or pulses by cutting them with a scythe, sickle, or reaper.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+            <div class="column card" style="background-color: darkgreen;">
+                <h1 class="card-head">BREWING</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain or pulses by cutting them with a scythe, sickle, or reaper.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+            <div class="column card" style="background-color: red;">
+                <h1 class="card-head">THE PERFECT CUP!</h1>
+                <p class="card-para">
+                    Gathering a mature crop from the fields is the procedure of harvesting. Reaping is the act of harvesting grain.
+                </p>
+                <button class="card-btn">Learn More</button>
+            </div>
+    </div>
+    </body>
+</html>
