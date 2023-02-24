@@ -13,6 +13,7 @@ for(let i=0; i<2; i++) {
 
 for(let i=0; i<3; i++) {
     if(grid[0][0]===colour[i]) {
+        
         grid[0][0] = colour[i+1];
         grid[0][1] = colour[i];
         grid[1][0] = colour[i+2];

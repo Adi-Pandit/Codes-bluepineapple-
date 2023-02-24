@@ -11,7 +11,7 @@ export default function Todo() {
   const addTask = () => {
 
     if(!task) {
-      alert('Enter an item');
+      alert('Enter a task');
       return;
     }
     const taskList = {
@@ -34,26 +34,22 @@ export default function Todo() {
       <h1>Todo List</h1>
         <div className="row">
           <input type="text" size="50" value={task} onChange={handleOnChange} />
-          <button type="submit" onClick={addTask} style={{ marginLeft: "10px" }}>
+          <button type="submit" onClick={addTask} style={{ marginLeft: "10px", marginBottom: "10px" }}>
             Add
           </button>
 
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Operation</th>
-            </tr>
-          </thead>
+          <table style={{marginLeft: 'auto', marginRight: 'auto'}}>
           <tbody>
             {data.map(element => {
               return(
                 <tr> 
-                  <td key={element.id}>{element.value}</td>   
+                  <td style={{width:'50%'}} key={element.id}>{element.value}</td>   
                   <td><button onClick={()=>deleteTask(element.id)}>Delete</button></td>
                 </tr>
               )
             })}
           </tbody>
+          </table>
         </div>
     </div>
   );
