@@ -2,7 +2,24 @@
     function sayHi() {
         alert('Hi');
     }
-        
-    var name = prompt('Enter function name: ');
-    eval([name]());
+    
+    function sayHello() {
+        alert('Hello');
+    }
+
+    function greet() {
+        alert('Greeting');
+    }
+
+    function approveLeave() {
+        alert('Leave approved');
+    }
+
+    function approveProject() {
+        alert('Project approved');
+    } 
+
+    
+    let name = prompt('Enter function name: ');
+    window[name]();
 </script>
